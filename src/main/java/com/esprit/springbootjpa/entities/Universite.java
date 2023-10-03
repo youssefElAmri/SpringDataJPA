@@ -1,19 +1,26 @@
 package com.esprit.springbootjpa.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import jakarta.persistence.*;
+
+import java.io.Serializable;
 
 @Entity
-public class Universite {
+@Table(name="Universite")
+public class Universite implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="iduniversite")
     private long idUniversite;
 
+    @Column(name="nomUniversite")
     private String nomUniversite;
 
+    @Column(name="adresse")
     private String adresse;
+
+    @OneToOne
+    private Foyer Foyer;
 
     // Getters and setters
     // ...

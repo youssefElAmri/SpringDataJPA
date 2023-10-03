@@ -1,19 +1,34 @@
 package com.esprit.springbootjpa.entities;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
+
+@Table(name="chambre")
+
 public class Chambre {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="idChambre")
+
     private long idChambre;
 
+
+    @Column(name="numeroChambre")
     private long numeroChambre;
 
-    private TypeChambre typeC;
+    @Column(name="TypeChambre")
+    private TypeChambre TypeChambre;
+
+    @ManyToOne
+    Bloc blocs;
+
+    @OneToMany (cascade = CascadeType.ALL)
+    private Set <Reservation> reservations;
+
 
     // Getters and setters
     // ...
