@@ -1,8 +1,6 @@
 package com.esprit.springbootjpa.entities;
 
-
 import jakarta.persistence.*;
-
 import java.util.Date;
 import java.util.Set;
 
@@ -13,18 +11,14 @@ public class Etudiant {
     @Column(name="idEtudiant")
     private long idEtudiant;
 
-
     @Column(name="nomET")
     private String nomET;
-
 
     @Column(name="prenomET")
     private String prenomET;
 
-
     @Column(name="cin")
     private long cin;
-
 
     @Column(name="ecole")
     private String ecole;
@@ -32,8 +26,9 @@ public class Etudiant {
     @Column(name="dateNaissance")
     private Date dateNaissance;
 
-    @ManyToMany (cascade = CascadeType.ALL)
+    @ManyToMany(mappedBy = "etudiants", cascade = CascadeType.ALL)
     private Set<Reservation> reservations;
+
     // Getters and setters
     // ...
 }

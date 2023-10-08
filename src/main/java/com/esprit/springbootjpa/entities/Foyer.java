@@ -1,8 +1,6 @@
 package com.esprit.springbootjpa.entities;
 
-
 import jakarta.persistence.*;
-
 import java.io.Serializable;
 import java.util.Set;
 
@@ -20,12 +18,12 @@ public class Foyer implements Serializable {
     @Column(name="capaciteFoyer")
     private long capaciteFoyer;
 
-    @OneToOne(mappedBy = "Foyer ")
-    private Foyer Foyer;
+    @OneToOne(mappedBy = "foyer")
+    private Universite universite;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy="foyer")
-    private Set<Bloc> Blocs;
+    private Set<Bloc> blocs;
 
-
-
+    // Getters and setters
+    // ...
 }
